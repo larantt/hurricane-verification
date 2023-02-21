@@ -31,11 +31,25 @@ I also included a month of data from 2006 in a seperate repository for further t
 
 Note that the storm name will be contained in the filename and not in the dataframe for redundancy, but this can be changed with some basic edits to the code.
 
- ### File Variables:
+### File Variables:
  * **Basin**: NHC code for ocean basin
  * **Number**: Warning centre assigned invest number (e.g. invest 90L)
  * **Time**: Forecast initialisation (YYYY-MM-DD-HH)
- * **tech**: ngl I have no clue but it doesn't matter
- * **model**: the model used. Full code = ensemble mean, numbers = ensemble member
+ * **Tech**: ngl I have no clue but it doesn't matter
+ * **Model**: the model used. Full code = ensemble mean, numbers = ensemble member
     - ECMF: European Centre for Medium Range Forecasting
-    - 
+    - CWAO: Canadian Meteorological Centre
+    - BABJ: China Meteorological Administration (CMA)
+    - RJTD: Japan Meteorological Agency (JMA)
+    - RKSL: Korea Meteorological Administration (KMA)
+    - LFPW: Meteo-France
+    - SHTM: Shanghai Typhoon Institute (STI) of CMA
+    - EGRR: United Kingdom Met Office (UKMO)
+    - KWBC: US National Centers for Environmental Prediction (NCEP)
+ * **forecastHr**: Ensemble member forecast hour
+ * **lat**: Latitude
+ * **lon**: Longitude
+ * **vmax**: Maximumum windspeed
+ * **mslp**: Mean Sea Level Pressure at cyclone centre
+
+ 

@@ -3,7 +3,7 @@ from datetime import datetime
 # pylint: disable=W0311, C0326, C0103, C0301
 
 ### run code as:
-#   python cxml_decode.py z_tigge_c_ecmf_20140912000000_ifs_glob_prod_all_glo.xml
+#   python cxml2atcf.py z_tigge_c_ecmf_20140912000000_ifs_glob_prod_all_glo.xml
 
 def parse_variable(datum, variable):
   """Find relevant forecast element, pull out values and return data"""

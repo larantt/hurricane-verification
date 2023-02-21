@@ -28,7 +28,7 @@ in the upper right corner if you don't want to do all the pulling and pushing st
 
 Either create a conda environment in terminal:
 ```
-$ conda install nb_conda_kernels # this lets you use jupyter notebooks with the environment
+$ conda install nb_conda_kernels    # this lets you use jupyter notebooks with the environment
 $ conda create -n climate323final python=3.11 pandas numpy matplotlib xarray metpy, scipy, ipykernel
 ```
 Or pip install it:
@@ -42,7 +42,7 @@ $ pip install hurdat2parser
 
 I also included a .yml file with all of my anaconda environment variables:
 ```
-conda env create -f tcVerification.yml
+$ conda env create -f tcVerification.yml
 ```
 
 ## Data Sources:
@@ -60,7 +60,7 @@ conda env create -f tcVerification.yml
 * Need to download the whole file and then store locally to use with the parser library (soooo much easier)
 
 ## Progress Log:
-20th Feb 2023 -- modified TropCy to parse to .csv files instead of .dat, added header to file
-21st Feb 2023 -- initial git push, included example parsed files
+* 20th Feb 2023 -- modified TropCy to parse to .csv files instead of .dat, added header to file
+* 21st Feb 2023 -- initial git push, included example parsed files
 
 

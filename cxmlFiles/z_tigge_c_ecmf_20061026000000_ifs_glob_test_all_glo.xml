@@ -1,0 +1,2275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cxml xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xsi:noNamespaceSchemaLocation="http://www.bom.gov.au/bmrc/projects/THORPEX/CXML/cxml.1.1.xsd"> 
+
+   <header>
+      <product>Cyclone Forecast</product>
+      <generatingApplication>
+         <applicationType>Global ensemble prediction system</applicationType>
+      </generatingApplication>
+      <productionCenter>ECMWF</productionCenter>
+      <baseTime>2006-10-26T00:00:00Z</baseTime>
+      <creationTime>2008-07-28T16:57:52Z</creationTime>
+   </header>
+
+   <data origin='ecmf' type='analysis'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix source='synoptic'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg S' precision='0.1'>16</latitude>
+            <longitude units='deg E' precision='0.1'>171</longitude>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix source='synoptic'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>24.5</latitude>
+            <longitude units='deg W' precision='0.1'>108.2</longitude>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='forecast'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>11.1</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='0' perturb='control'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.1</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='1' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.1</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='2' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.1</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.8</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='3' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1006.8</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='4' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.4</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='5' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='6' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.3</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='7' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1006.9</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='8' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.4</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='9' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.5</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='10' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.2</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.8</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='11' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.2</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.3</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='12' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>11</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='13' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1006.9</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='14' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.4</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='15' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.5</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='16' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.3</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.8</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='17' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.4</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.5</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='18' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1006.8</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.8</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='19' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.1</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='20' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.2</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.8</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='21' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1006.9</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='22' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.3</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='23' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.1</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.8</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='24' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.1</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.5</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='25' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1006.6</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='26' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.6</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.8</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='27' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.4</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='28' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1006.9</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.8</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='29' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.5</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.8</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='30' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1006.8</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.5</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='31' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.1</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='32' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.1</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.8</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='33' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.4</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='34' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1006.8</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='35' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.6</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='36' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1006.7</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='37' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1006.8</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.8</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='38' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.5</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='39' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='40' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.2</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.8</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='41' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1006.9</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.5</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='42' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.3</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.8</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='43' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1006.9</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='44' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.3</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='45' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='46' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.2</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.6</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='47' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.2</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.8</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='48' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.1</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.5</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='49' perturb='positive'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1006.9</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.5</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+   <data origin='ecmf' type='ensembleForecast' member='50' perturb='negative'>
+      <disturbance ID='2006102600_160S_1710E'>
+         <cycloneName>Xavier</cycloneName> <!-- 01P -->
+         <cycloneNumber>1</cycloneNumber>
+         <basin>Southwest Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>0</latitude>
+            <longitude units='deg E' precision='0.1'>0</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>0</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>0</speed>
+                  <latitude units='deg N' precision='0.1'>0</latitude>
+                  <longitude units='deg E' precision='0.1'>0</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+      <disturbance ID='2006102600_245N_1082W'>
+         <cycloneName>Paul</cycloneName> <!-- 17E -->
+         <cycloneNumber>17</cycloneNumber>
+         <basin>Northeast Pacific</basin>
+         <fix hour='0' source='model'>
+            <validTime>2006-10-26T00:00:00Z</validTime>
+            <latitude units='deg N' precision='0.1'>25</latitude>
+            <longitude units='deg W' precision='0.1'>109.1</longitude>
+            <cycloneData>
+               <minimumPressure source='model'>
+                  <pressure units='hPa' precision='0.01'>1007.4</pressure>
+               </minimumPressure>
+               <maximumWind source='model'>
+                  <speed units='m/s' precision='0.1'>10.8</speed>
+                  <latitude units='deg N' precision='0.1'>25.5</latitude>
+                  <longitude units='deg W' precision='0.1'>109.5</longitude>
+               </maximumWind>
+            </cycloneData>
+         </fix>
+      </disturbance>
+   </data>
+
+</cxml>

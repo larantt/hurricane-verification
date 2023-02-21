@@ -1,8 +1,8 @@
-### CLIMATE 323 PROJECT LOG
+# CLIMATE 323 PROJECT LOG
 Lara Tobias-Tarsh, Nick Dewhirst, Claire Sheeren, Ryan Pohlman
 Google Drive: https://drive.google.com/drive/folders/1PdQvzxRMCL0q9U4QIkF02pyXJhxSnXBe?usp=sharing
 ## TO DO:
-# add to file: 
+### add to file: 
 * descriptor header containing cyclone name and model descriptor
     e.g. TC Norbert, ECMF Ensemble, 2006-10-01-0z (completed, 20th Feb 2023)
 * basic headers for each variable
@@ -21,9 +21,9 @@ You can always just download the zip file for the current code versions using th
 in the upper right corner if you don't want to do all the pulling and pushing stuff.
 
 ## Dependencies:
-# TropCy:
+### TropCy:
 * pandas, numpy
-# General:
+### General:
 * pandas, numpy, matplotlib, xarray, hurdat2parser, metpy, scipy
 
 Either create a conda environment in terminal:
@@ -46,13 +46,13 @@ conda env create -f tcVerification.yml
 '''
 
 ## Data Sources:
-# THORPEX TIGGE TC Tracks
+### THORPEX TIGGE TC Tracks
 * THORPEX Grand Global Ensemble contains model TC track and intensity information
 * Stored in cyclone XML format (more info: http://www.bom.gov.au/cyclone/cxmlinfo/index.shtml)
 * Best access through the UCAR RDA archive - will require account registration
     - https://rda.ucar.edu/datasets/ds330.3/
     - a download script which prompts an RDA login should be included soon (see above)
-# HURDAT2
+### HURDAT2
 * Observed TC tracks for Atlantic and NE + NC Pacific from the National Hurricane Centre for 1851 - ongoing
 * .txt file containing comma-delimited, text format with 6hr location, maximum winds + central pressure
     - Atlantic Hurricanes: https://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2021-100522.txt

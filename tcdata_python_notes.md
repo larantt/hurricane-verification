@@ -27,23 +27,23 @@ in the upper right corner if you don't want to do all the pulling and pushing st
 * pandas, numpy, matplotlib, xarray, hurdat2parser, metpy, scipy
 
 Either create a conda environment in terminal:
-'''
+```
 $ conda install nb_conda_kernels # this lets you use jupyter notebooks with the environment
 $ conda create -n climate323final python=3.11 pandas numpy matplotlib xarray metpy, scipy, ipykernel
-'''
+```
 Or pip install it:
-'''
+```
 $ pip install pandas numpy matplotlib xarray metpy, scipy
-'''
+```
 I think whatever happens you will need to pip install the hurdat2parser
-'''
+```
 $ pip install hurdat2parser
-'''
+```
 
 I also included a .yml file with all of my anaconda environment variables:
-'''
+```
 conda env create -f tcVerification.yml
-'''
+```
 
 ## Data Sources:
 ### THORPEX TIGGE TC Tracks

@@ -19,7 +19,7 @@ def parse_variable(datum, variable):
     except:
       tmpvar = -999.
     finally:
-      return tmpvar
+      return tmpvar / 10
   if variable == "longitude":
     try:
       tmpvar = float(datum.find('longitude').text)
@@ -32,7 +32,7 @@ def parse_variable(datum, variable):
     except:
       tmpvar = -999.
     finally:
-      return tmpvar
+      return tmpvar / 10
   if variable == "time":
     dformat = '%Y-%m-%dT%H:%M:%SZ'
     try:

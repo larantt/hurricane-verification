@@ -24,16 +24,22 @@ import os # if i cba to fix the directory structures dependencies lol
 from typing import List
 from math import asin, cos, radians, sin, sqrt
 import numpy as np
+import hurdat2parser
 
 #############
 ## GLOBALS ##
 #############
-members = ['EMCF','GEFS']
+
+# fill out with the models you intend to use
+MEMBERS = ['EMCF','GEFS']
+
+# path to hurdat2 file
+ATL = hurdat2parser.Hurdat2('errorCalcModules/HURDAT2.txt')
 
 ###############
 ## FUNCTIONS ##
 ###############
-def extract_position_data(fp):
+def extract_position_data(filepath):
     """ Helper for position function
 
     Reads in csv file containing TIGGE data. Parses for use in a Position object.
@@ -43,17 +49,15 @@ def extract_position_data(fp):
 
     Parameters
     ----------
-        fp : str
+        filepath : str
             path to csv file
     
     Returns
     -------
         time : dt.datetime 
             time of forecast
-        lat : float 
-            Latitude of TC centre
-        lon : float 
-            Longitude of TC centre
+        coords : tuple 
+            Tuple containing latitude and longitude data (lat,lon)
         mslp : float 
             Mean Sea Level Pressure at TC centre
         vmax :float 
@@ -61,7 +65,10 @@ def extract_position_data(fp):
     
     Note that these variables are stored in a list
     """
-    # read in file w genfromtext, use headers, skip whitespace
+    # convert to datetime
+    tconvert = lambda x: dt.datetime.strptime(str(x), '%Y%m%d%H')
+    # read in file w genfromtext, use headers, skip whitespace, time = %Y%m%d%H
+    np.genfromtxt(fname=filepath,delimiter=',',converters={2:tconvert})
     # find index of ensemble member in df['model']
     # generate list of forecast hours in df['forecastHr']
     # iterate through forecast hours and extract variables
@@ -72,7 +79,33 @@ def extract_position_data(fp):
     pass
 
 def parse_hurdat(name,year):
-    """TBA"""
+    """ Default constructor for HURDAT2 best track data
+    
+    Uses the HURDAT2 parser python module to generate a best track for 
+    a TC object from the HURDAT2 database. This requires you to have the 
+    HURDAT2.txt file in your directory and the HURDAT2 parser installed.
+    If you run the yaml file install (see README), then it should install
+    via pip, although it isn't included. If not run:
+
+    pip install hurdat2parser in your laptop's command line
+
+    Parameters
+    ----------
+        name : string
+            NHC assigned cyclone name, parsed from cxml filename
+        year : string
+            Year of cyclone, parsed from cxml filename
+
+    Returns
+    --------
+        best_track : Track
+            Track object containing best track data
+
+    """
+    # Open HURDAT2.txt
+    # Generate tupled coord list: ATL[str(year)][str(name)].gps
+    # store in list
+    # return list
     pass
 
 def generate_cyclone(dir_list):
@@ -190,7 +223,7 @@ class Position:
 
         Returns
         -------
-        intens_diff : float
+         : float
             difference in central MSLP between the two systems
         
         """
@@ -340,9 +373,7 @@ class Cyclone:
 
     def __post__init__(self):
         # Sets formation date to the first time in the best track
-        self.formation_date = self.best_track.forecasts[0].time
-                    
-
+        self.formation_date = self.best_track.forecasts[0].time                    
 
 ####################
 ## main() OUTLINE ##

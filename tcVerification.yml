@@ -161,4 +161,6 @@ dependencies:
   - zipp=3.14.0=pyhd8ed1ab_0
   - zlib=1.2.13=hfd90126_4
   - zstd=1.5.2=hbc0c0cd_6
+  - pip:
+  - hurdat2parser
 prefix: /Users/laratobias-tarsh/opt/anaconda3/envs/tcVerification

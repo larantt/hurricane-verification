@@ -9,7 +9,7 @@ def parse_variable(datum, variable):
   """Find relevant forecast element, pull out values and return data"""
   if variable == "latitude":
     try:
-      tmpvar = float(datum.find('latitude').text)
+      tmpvar = float(datum.find('latitude').text) 
       if datum.find('latitude').attrib['units'] == 'deg S':
         tmpvar = -tmpvar
     except AttributeError:
@@ -19,7 +19,7 @@ def parse_variable(datum, variable):
     except:
       tmpvar = -999.
     finally:
-      return tmpvar / 10
+      return tmpvar
   if variable == "longitude":
     try:
       tmpvar = float(datum.find('longitude').text)
@@ -32,7 +32,7 @@ def parse_variable(datum, variable):
     except:
       tmpvar = -999.
     finally:
-      return tmpvar / 10
+      return tmpvar
   if variable == "time":
     dformat = '%Y-%m-%dT%H:%M:%SZ'
     try:

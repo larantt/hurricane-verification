@@ -18,17 +18,17 @@ def str2ll(x):
 def lat(x):
   """Convert numeric lat to atcf lat string"""
   if x > 0.0:
-    latstr = '%3.0i' % int(round(x*10.0)) + "N"
+    latstr = f"{x:.4}"
   else:
-    latstr = '%3.0i' % int(round(-x*10.0)) + "S"
+    latstr = f"{x:.4}"
   return latstr
 
 def lon(x):
   """Convert numeric lon to atcf lon string"""
   if x > 0.0:
-    latstr = '%4.0i' % int(round(x*10.0)) + "E"
+    latstr = f"{x:.4}"
   else:
-    latstr = '%4.0i' % int(round(-x*10.0)) + "W"
+    latstr = f"{x:.4}"
   return latstr
 
 def basin2short(longname):

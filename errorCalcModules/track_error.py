@@ -24,61 +24,90 @@ import os # if i cba to fix the directory structures dependencies lol
 from typing import List
 from math import asin, cos, radians, sin, sqrt
 import numpy as np
+import pandas as pd
 import hurdat2parser
+import cartopy.crs as ccrs
+import matplotlib.pyplot as plt
+import traceback
 
 #############
 ## GLOBALS ##
 #############
 
 # fill out with the models you intend to use
-MEMBERS = ['EMCF','GEFS']
+MEMBERS = ['ECMF','GEFS']
 
 # path to hurdat2 file
-ATL = hurdat2parser.Hurdat2('errorCalcModules/HURDAT2.txt')
+ATL = hurdat2parser.Hurdat2('/Users/laratobias-tarsh/Documents/clim323-final/errorCalcModules/HURDAT2.txt')
 
 ###############
 ## FUNCTIONS ##
 ###############
-def extract_position_data(filepath):
-    """ Helper for position function
 
-    Reads in csv file containing TIGGE data. Parses for use in a Position object.
-    Probably used by listing filepaths within larger Cyclone constructor.
-    Uses np.genfromtext() for class usability. Future versions could implement a 
-    custom csv reader in base python for speed. Good for real time applications.
+def check_greek_alphabet(name):
+    """ Checks if a storm is a greek alphabet storm
+    
+    Hurdat2Parser.py checks storm entries by first letter
+    of the storm only and so will break the best track assignment
+    for greek alphabet storms.
+
+    Because the greek alphabet is retired and TIGGE data is not available
+    for 2005, which is the only other year it was used, we are safe to
+    hardcode these here.
 
     Parameters
-    ----------
-        filepath : str
-            path to csv file
+    -----------
+    name : string
+        storm name
     
     Returns
     -------
-        time : dt.datetime 
-            time of forecast
-        coords : tuple 
-            Tuple containing latitude and longitude data (lat,lon)
-        mslp : float 
-            Mean Sea Level Pressure at TC centre
-        vmax :float 
-            Maximum sustained windspeed
-    
-    Note that these variables are stored in a list
+    id : string
+        unique identifier for storm
     """
-    # convert to datetime
-    tconvert = lambda x: dt.datetime.strptime(str(x), '%Y%m%d%H')
-    # read in file w genfromtext, use headers, skip whitespace, time = %Y%m%d%H
-    np.genfromtxt(fname=filepath,delimiter=',',converters={2:tconvert})
-    # find index of ensemble member in df['model']
-    # generate list of forecast hours in df['forecastHr']
-    # iterate through forecast hours and extract variables
-    # Construct a Position
-    # Calculate track error
-    # Calculate intensity error
-    # return list of Forecasts
-    pass
+    if name == "Alpha" :
+        return 'AL242020'
+    if name == "Beta" :
+        return 'AL222020'
+    if name == "Gamma" :
+        return 'AL252020'
+    if name == "Delta" :
+        return 'AL262020'
+    if name == "Epsilon" :
+        return 'AL272020'
+    if name == "Zeta":
+        return 'AL282020'
+    if name == "Eta":
+        return 'AL292020'
+    if name == "Theta" :
+        return 'AL302020'
+    if name == "Iota" :
+        return 'AL312020'
+    else:
+        pass 
 
-def parse_hurdat(name,year):
+
+def name_from_string(filepath):
+    """ Parses name from the TC filepath name
+    
+    File must follow modified TropCy.py naming convention
+    Parameters
+    -----------
+    filepath : string
+        path to file containing TIGGE data
+
+    Returns
+    --------
+    name : string
+        Name of TC
+    year : string
+        Year of TC
+    """
+    name = filepath.split('/')[-1].split('-')[0]
+    year = filepath.split('/')[-1].split('-')[1]
+    return name, year
+
+def parse_hurdat(filepath):
     """ Default constructor for HURDAT2 best track data
     
     Uses the HURDAT2 parser python module to generate a best track for 
@@ -102,13 +131,92 @@ def parse_hurdat(name,year):
             Track object containing best track data
 
     """
-    # Open HURDAT2.txt
     # Generate tupled coord list: ATL[str(year)][str(name)].gps
-    # store in list
-    # return list
-    pass
+    name, year = name_from_string(filepath)
+    storm = ATL[year][name]
+    if name in ["Alpha"  , "Beta" , "Gamma" , "Delta" , "Epsilon" , "Zeta" , "Theta" , "Iota" ]:
+        storm = ATL[check_greek_alphabet(name)]
+    best_track = [Position(entry.entrytime,entry.lat,entry.lon,entry.mslp,entry.wind) for entry in storm]
+    return best_track
+    
+def get_errors(best_track,forecast_pos):
+    """ Calculates track errors for a TC
+    
+    Parameters
+    -----------
+    best_track : Position
+        Position object containing HURDAT2 track data
+    forecast_pos : Position
+        Position object containing ensemble TIGGE data
 
-def generate_cyclone(dir_list):
+    Returns
+    --------
+    t_error : float
+        Great circle distance between observations and model data
+    i_error : float
+        Difference in intensity between observations and model data
+    """
+    skip=False
+    current_time = forecast_pos.time
+    if current_time > best_track[-1].time : 
+        skip = True
+    for pos in best_track:
+        if skip == True : break
+        if pos.time == current_time:
+            t_error = forecast_pos.trackError(pos)
+            i_error = forecast_pos.intensityError(pos)
+    if skip == False :
+        return t_error, i_error
+    else : 
+        pass
+
+        
+
+def extract_position_data(filepath):
+    """ Helper for position function
+
+    Reads in csv file containing TIGGE data. Parses for use in a Position object.
+    Probably used by listing filepaths within larger Cyclone constructor.
+    Uses np.genfromtext() for class usability. Future versions could implement a 
+    custom csv reader in base python for speed. Good for real time applications.
+
+    Parameters
+    ----------
+        filepath : str
+            path to csv file
+    
+    Returns
+    -------
+        forecasts : Forecast
+            Forecast object containing all assesment metrics for a TC
+        model : string
+            Name of model being used
+    
+    Note that these variables are stored in a list
+    """
+    # read in file, convert datetime, extract ensemble
+    try :
+        df = pd.read_csv(filepath,skipinitialspace=True)
+        ens = df.loc[df.model.isin(MEMBERS)]
+        model = ens.model.values[0]
+        # Parse filename and use HURDAT2 to get best track
+        best_track = parse_hurdat(filepath)
+            # iterate through forecast hours and extract variables and waste memory
+        positions = [Position((pd.to_datetime(ens.time.values[ix],format='%Y%m%d%H')+pd.DateOffset(hours=int(ens.forecastHr.values[ix]))),
+                                ens.lat.values[ix],ens.lon.values[ix],ens.mslp.values[ix],ens.vmax.values[ix]) for (ix,en) in enumerate(ens.time)]
+        forecasts = []
+            # Iterate through positions and create forecast objects
+        for pos in positions:
+                t_e,i_e = get_errors(best_track,pos)
+                forecasts.append(Forecast(pos.time,pos.lat,pos.lon,pos.mslp,pos.vmax,t_e,i_e))
+
+            # return list of Forecasts
+        return forecasts,model, Track(best_track)
+    except:
+        pass
+
+
+def generate_cyclone(dirpath):
     """ Function initialises a cyclone object from a list of csvs
 
     Iterates through a list of csv files in a directory and constructs a
@@ -119,30 +227,34 @@ def generate_cyclone(dir_list):
 
     Parameters
     ----------
-        Name : string
-            NHC assigned cyclone name
-        bestTrack : Track 
-            HURDAT2 best track
+        dirpath : str
+            path to directory containing cyclone csvs
 
     Returns
     -------
-        storm : Cyclone
+         : Cyclone
             Cyclone object for storm in directory
     """
-    # open first csv in directory
-    # extract storm name and year from file
-    # create best track object with parse_hurdat()
     # For file in list:
-    #   Index in and get model
-    #   tracks = Default construct Track()
-    #   [for forecast in tracks calculate track error, intensity error]
-    #   run = tracks
-    #   if model == gfs:
-    #        append run to gfs list
-    #   if model == ecmf:
-    #       append to ecmf list
-    # default construct cyclone object
-    pass
+    # this is so hacky - need to come up with a better way of making vars on the fly...
+    gfs = []
+    ecmf = []
+    for filename in sorted(os.listdir(dirpath)):
+        print(f'reading file: {filename}')
+        name, year = name_from_string(filename)
+        try:
+            fcasts, model, best_track = extract_position_data(dirpath+"/"+filename)
+        except:
+            break
+        tracks = Track(fcasts)
+        if model == "ECMF":
+            ecmf.append(tracks)
+        if model == "GFS":
+            gfs.append(tracks)
+    try:
+        return Cyclone(name,int(year),Model(ecmf),Model(gfs),best_track)
+    except:
+        pass
 
 #############
 ## CLASSES ##
@@ -193,7 +305,7 @@ class Position:
         Returns
         --------
         gcd : float
-            Great circle distance between two Position objects
+            Great circle distance between two Position objects in km
 
         """
         radius = 6371  # Earth radius in kilometers
@@ -205,7 +317,7 @@ class Position:
         return gcd
     
     # function for intensity error
-    def intensity_error(self, other):
+    def intensityError(self, other):
         """Calculates intensity difference between two TCs
 
         Calculates the difference in intensity between the mean sea level pressure (MSLP) 
@@ -227,7 +339,30 @@ class Position:
             difference in central MSLP between the two systems
         
         """
+        #real_mslp = [entry for (index,entry) in enumerate(other) if other[index].time == self.time][0]
         return self.mslp - other.mslp
+    
+    def trackError(self,other):
+        """ Calculates a TC track error between one storm and another
+        
+        Performs a time based indexing scheme then calculates great circle distance
+        between two tracks. 
+
+        Parameters
+        ----------
+        self : Position
+            Existing Position object containing latitude and longitude information
+        other : Position
+            Position object containing latitude and longitude information
+
+        Returns
+        --------
+         : float
+            Track error distance between two Position objects
+        """
+        # check start time of position object
+        #real_position = [entry for (index,entry) in enumerate(other) if other[index].time == self.time][0]
+        return self.great_circle(other)
 
 
 @dataclass
@@ -239,7 +374,7 @@ class Forecast(Position):
 
     Attributes
     ----------
-        position : Position 
+        position : Position (inhereted)
             Positional data for TC
         track_error : float 
             Great circle distance between modelled TC centre and best track
@@ -247,22 +382,9 @@ class Forecast(Position):
             Difference in mean sea level pressure between modelled TC centre and best track
 
     """
-    track_error: float = field(init=False)
-    intensity_error: float = field(init=False)
 
-    # alternate potential syntax (TEST ME!)
-    # track_error: float = field(default_factory=generate_cyclone)
-    # intensity_error: float = field(default_factory=generate_cyclone)
-
-    def __post__init__(self,other):
-        # don't know if this is even necessary if I am just forcing initialisation in cyclone init.
-        #self.track_error = self.great_circle(bestTrack)
-        self.intensity_error = self.intensity_error()
-
-        # alternate potential syntax (TEST ME!)
-        # self.track_error = generate_cyclone(self,other)
-        # self.intensity_error = generate_cyclone(self,other)
-
+    track_error: float
+    intensity_error: float
 
 @dataclass
 class Track:
@@ -272,43 +394,79 @@ class Track:
     -----------
         forecasts : List 
             List of Forecast objects for each point along track
-    
-    """
-    forecasts: List[Position] = field(default_factory=extract_position_data)
-
-
-@dataclass
-# TBC: do we start from best track formation or model detection...?
-class Run:
-    """ TC object containing full track and error data for each model run
-
-    Class holds each entire forecast for a given lead time. 
-    E.g. run1 will be the first time the model detects TC, 
-    runN will be the closest run to dissipation time.
-
-    Attributes
-    ----------
-        tracks : List 
-            List of all model generated tracks up to dissipation
         mean_terror : float
             Average track error across whole forecast
         mean_ierror : float 
             Average intensity error across whole forecast
+
+        ADD AFTER 323 FOR ASSESSING AN ENSEMBLE
         along_track_bias : float 
             TBA
         cross_track_bias : float 
             TBA
 
+    
     """
-    tracks: List[Track]
+    forecasts : List[Position] 
     mean_terror: float = field(init=False)
     mean_ierror: float = field(init=False)
-    along_track_bias: float = field(init=False)
-    cross_track_bias: float = field(init=False)
 
-    def __post__init__(self):
-        # add with added functions
-        pass
+     
+    def __post_init__(self):
+        if type(self.forecasts[0]) == Forecast:
+            t_err = i_err = 0
+            for i, fcst in enumerate(self.forecasts):
+                t_err = t_err + self.forecasts[i].track_error
+                i_err = i_err + self.forecasts[i].intensity_error
+        
+            self.mean_terror = (t_err / len(self.forecasts))
+            self.mean_ierror = (i_err / len(self.forecasts))
+        else:
+            self.mean_terror = self.mean_ierror = 0   
+    #along_track_bias: float = field(init=False)
+    #cross_track_bias: float = field(init=False)
+
+    def return_coords(self):
+        """ Gives a list of (lat,lon) pairs for a given track
+        
+        Parameters
+        -----------
+        self : Track
+            track object containing positional and temporal TC data
+
+        Returns
+        --------
+            : List
+            List of tuples containing coordinates of TC position for easy mapping
+        """
+        return [(self.forecasts[idx].lon,self.forecasts[idx].lat) for (idx,fcst) in enumerate(self.forecasts)]
+    
+    def return_lons(self):
+        """TBA"""
+        return [self.forecasts[idx].lon for (idx,fcst) in enumerate(self.forecasts)]
+    
+    def return_lats(self):
+        """TBA"""
+        return [self.forecasts[idx].lat for (idx,fcst) in enumerate(self.forecasts)]
+
+
+
+#@dataclass
+# ONLY NECESSARY IF THERE IS AN ENSEMBLE
+# TBC: do we start from best track formation or model detection...?
+#class Run:
+#    """ TC object containing full track and error data for each model run
+#
+#    Class holds each entire forecast for a given lead time. 
+#    E.g. run1 will be the first time the model detects TC, 
+#    runN will be the closest run to dissipation time.
+#
+#    Attributes
+#    ----------
+#        tracks : List 
+#            List of all model generated tracks up to dissipation
+#    """
+#    #tracks: List[Track]
 
 
 @dataclass
@@ -325,15 +483,26 @@ class Model:
         brier_skill_score: 
             TBA
     """
-    runs: List[Run]
+    runs : List[Track]
     brier_skill_score: float = field(init=False)
+    errors : List[float] = field(init=False)
 
     def brier_skill(self):
         """TBA"""
         return []
+    
+    def mean_errors(self):
+        """TBA"""
+        t_ers = []
+        i_ers = []
+        for tr in self.runs:
+            t_ers.append(tr.mean_terror)
+            i_ers.append(tr.mean_ierror)
+        return ((np.mean(t_ers)), (np.mean(i_ers)))
 
-    def __post__init__(self):
+    def __post_init__(self):
         self.brier_skill_score = self.brier_skill()
+        self.errors = self.mean_errors()
 
 
 @dataclass
@@ -350,6 +519,8 @@ class Cyclone:
     ----------
         name : str 
             NHC assigned storm name
+        year : int
+            Year of storm occurrence
         ecmwf : Model 
             ECMWF model object
         gfs : Model 
@@ -365,34 +536,39 @@ class Cyclone:
         
     """
     name: str
+    year : int
     ecmwf: Model
     gfs: Model
     #number: int = field(init=False)
-    best_track: Track = field(default_factory=parse_hurdat)
+    best_track: Track
     formation_date: dt.datetime = field(init=False)
+    dissipation_date: dt.datetime = field(init=False)
 
-    def __post__init__(self):
+    def __post_init__(self):
         # Sets formation date to the first time in the best track
-        self.formation_date = self.best_track.forecasts[0].time                    
+        self.formation_date = self.best_track.forecasts[0].time 
+        self.dissipation_date = self.best_track.forecasts[-1].time  
 
-####################
-## main() OUTLINE ##
-####################
-# initialise storm via constructor:
-# look for csv for system
-# parse into cyclone object
+    def print_summary(self):
+        """ Returns a short summary of statistics for a TC """
+        print(f'Tropical Cyclone {self.name}:')
+        print(f'formation date: {self.formation_date.strftime("%Y-%m-%d, %H:%M")}')
+        print(f'dissipation date: {self.dissipation_date.strftime("%Y-%m-%d, %H:%M")}')
+        print(f'Best Track: {self.best_track.return_coords()}')
+        print(f'ECMWF Mean Total Track Error: {self.ecmwf.errors[0]}') 
+        print(f'GFS Mean Total Track Error: {self.gfs.errors[0]}')
+        print(f'ECMWF Mean Total Intensity Error: {self.ecmwf.errors[1]}') 
+        print(f'GFS Mean Total Intensity Error: {self.gfs.errors[1]}')
 
-# list directory containing all storms
-# initialise the best track
-# initialise the track
-# initialise the run
-# initialise the model
-# initialise the Cyclone
-# store cyclone in a dictionary
-
-######################
-## FUNCTIONS NEEDED ##
-######################
-# cross-track error
-# along-track error
-# brier skill score
+    def track_map(self):
+        """ Creates a quick track map for TC"""
+        print(f"Best track map for TC {self.name}: ")
+        lons = self.best_track.return_lons()
+        lats = self.best_track.return_lats()
+        ax = plt.axes(projection=ccrs.PlateCarree())
+        ax.set_extent([lons[0]-20, lons[-1]+20, lats[0]-15, lats[-1]+15], crs=ccrs.PlateCarree())
+        ax.stock_img()
+        ax.coastlines()
+        ax.plot(lons,lats,transform=ccrs.PlateCarree()) 
+         
+                   

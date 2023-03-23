@@ -64,9 +64,9 @@ def line_out( basin, cyNo, rdate, tech, tau, inlat, inlon, vmax, mslp, TY='XX' )
     """Format data int atcf string style
     TODO: update this to fstring so it's more readable"""
     basin = basin2short(basin)
-    outline = ("{basin}, {cyNo:02}, "
+    outline = ("{basin},{cyNo:02},"
                "{time.year:04.0f}{time.month:02.0f}{time.day:02.0f}{time.hour:02.0f}, "
-               "03, {tech}, {tau:3.0f}, {lat}, {lon}, {vmax:3.0f}, {mslp:4.0f}, {ty:>2}\n")
+               "03,{tech},{tau:3.0f},{lat},{lon},{vmax:3.0f},{mslp:4.0f},{ty:>2}\n")
     string =  outline.format(basin=basin.upper(), cyNo=cyNo, time=rdate, tech=tech,tau=tau,
                              lat=lat(inlat), lon=lon(inlon), vmax=vmax, mslp=mslp, ty=TY )
     return  string
@@ -74,8 +74,8 @@ def line_out( basin, cyNo, rdate, tech, tau, inlat, inlon, vmax, mslp, TY='XX' )
 def filename(name,basin, storm, date):
     """Create atcf filename from basin (str), storm number (int) and date (datetime)"""
     # Modified (Feb 20th 2023) - returns a csv by changing file extension
-    string = "{name}-{bb}-{nn:02.0f}-{time.year:04.0f}.csv"
-    fmt_string = string.format(name=name,bb=basin2short(basin),nn=storm,time=date )
+    string = "{name}-{time.year:04.0f}-{time.month:02.0f}-{time.day:02.0f}-{time.hour:02.0f}.csv"
+    fmt_string = string.format(name=name,time=date )
     return fmt_string
 
 # def read_all_and_correct_vmax(filename):

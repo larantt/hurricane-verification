@@ -14,7 +14,7 @@ def save_atcf(basin, number, time, data, fid):
     fid.write(outstr)
 
 def csv_headers(fid):
-    outstr = "basin, number, time, tech, model, forecastHr, lat , lon, vmax, mslp, \n"
+    outstr = "basin,number,time,tech,model,forecastHr,lat,lon,vmax,mslp,\n"
     fid.write(outstr)
 
 def cxml2atcf(fname):

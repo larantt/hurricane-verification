@@ -134,8 +134,10 @@ def parse_hurdat(filepath):
     # Generate tupled coord list: ATL[str(year)][str(name)].gps
     name, year = name_from_string(filepath)
     storm = ATL[year][name]
-    if name in ["Alpha"  , "Beta" , "Gamma" , "Delta" , "Epsilon" , "Zeta" , "Theta" , "Iota" ]:
+    if name in ["Alpha"  , "Beta" , "Gamma" , "Delta" , "Epsilon" , "Zeta" , "Eta", "Theta" , "Iota" ]:
         storm = ATL[check_greek_alphabet(name)]
+    if name == "Teddy":
+        storm = ATL["AL202020"]
     best_track = [Position(entry.entrytime,entry.lat,entry.lon,entry.mslp,entry.wind) for entry in storm]
     return best_track
     
@@ -156,19 +158,13 @@ def get_errors(best_track,forecast_pos):
     i_error : float
         Difference in intensity between observations and model data
     """
-    skip=False
+
     current_time = forecast_pos.time
-    if current_time > best_track[-1].time : 
-        skip = True
     for pos in best_track:
-        if skip == True : break
         if pos.time == current_time:
             t_error = forecast_pos.trackError(pos)
             i_error = forecast_pos.intensityError(pos)
-    if skip == False :
-        return t_error, i_error
-    else : 
-        pass
+    return t_error, i_error
 
         
 
@@ -204,11 +200,15 @@ def extract_position_data(filepath):
             # iterate through forecast hours and extract variables and waste memory
         positions = [Position((pd.to_datetime(ens.time.values[ix],format='%Y%m%d%H')+pd.DateOffset(hours=int(ens.forecastHr.values[ix]))),
                                 ens.lat.values[ix],ens.lon.values[ix],ens.mslp.values[ix],ens.vmax.values[ix]) for (ix,en) in enumerate(ens.time)]
+        # Discard times not in best track for sake of simplicity
+        bt = Track(best_track)
+        positions = [pos for pos in positions if pos.time in bt.return_times()]
+        
         forecasts = []
             # Iterate through positions and create forecast objects
         for pos in positions:
-                t_e,i_e = get_errors(best_track,pos)
-                forecasts.append(Forecast(pos.time,pos.lat,pos.lon,pos.mslp,pos.vmax,t_e,i_e))
+            t_e,i_e = get_errors(best_track,pos)
+            forecasts.append(Forecast(pos.time,pos.lat,pos.lon,pos.mslp,pos.vmax,t_e,i_e))
 
             # return list of Forecasts
         return forecasts,model, Track(best_track)
@@ -448,6 +448,10 @@ class Track:
     def return_lats(self):
         """TBA"""
         return [self.forecasts[idx].lat for (idx,fcst) in enumerate(self.forecasts)]
+    
+    def return_times(self):
+        """TBA"""
+        return [self.forecasts[idx].time for (idx,fcst) in enumerate(self.forecasts)]
 
 
 
@@ -563,10 +567,12 @@ class Cyclone:
     def track_map(self):
         """ Creates a quick track map for TC"""
         print(f"Best track map for TC {self.name}: ")
+        # Extract coords
         lons = self.best_track.return_lons()
         lats = self.best_track.return_lats()
         ax = plt.axes(projection=ccrs.PlateCarree())
-        ax.set_extent([lons[0]-20, lons[-1]+20, lats[0]-15, lats[-1]+15], crs=ccrs.PlateCarree())
+        # Auto crop map
+        ax.set_extent([min(lons)-15, max(lons)+15, min(lats)-15, max(lats)+15], crs=ccrs.PlateCarree())
         ax.stock_img()
         ax.coastlines()
         ax.plot(lons,lats,transform=ccrs.PlateCarree()) 

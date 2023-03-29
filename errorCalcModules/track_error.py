@@ -237,7 +237,7 @@ def generate_cyclone(dirpath):
     """
     # For file in list:
     # this is so hacky - need to come up with a better way of making vars on the fly...
-    gfs = []
+    #gfs = []
     ecmf = []
     for filename in sorted(os.listdir(dirpath)):
         print(f'reading file: {filename}')
@@ -249,10 +249,10 @@ def generate_cyclone(dirpath):
         tracks = Track(fcasts)
         if model == "ECMF":
             ecmf.append(tracks)
-        if model == "GFS":
-            gfs.append(tracks)
+        #if model == "GFS":
+           # gfs.append(tracks)
     try:
-        return Cyclone(name,int(year),Model(ecmf),Model(gfs),best_track)
+        return Cyclone(name,int(year),Model(ecmf),best_track)
     except:
         pass
 
@@ -461,13 +461,13 @@ class Track:
 #class Run:
 #    """ TC object containing full track and error data for each model run
 #
-#    Class holds each entire forecast for a given lead time. 
-#    E.g. run1 will be the first time the model detects TC, 
+#    Class holds each entire forecast for a given lead time.
+#    E.g. run1 will be the first time the model detects TC,
 #    runN will be the closest run to dissipation time.
 #
 #    Attributes
 #    ----------
-#        tracks : List 
+#        tracks : List
 #            List of all model generated tracks up to dissipation
 #    """
 #    #tracks: List[Track]
@@ -542,7 +542,7 @@ class Cyclone:
     name: str
     year : int
     ecmwf: Model
-    gfs: Model
+    #gfs: Model
     #number: int = field(init=False)
     best_track: Track
     formation_date: dt.datetime = field(init=False)
@@ -560,9 +560,9 @@ class Cyclone:
         print(f'dissipation date: {self.dissipation_date.strftime("%Y-%m-%d, %H:%M")}')
         print(f'Best Track: {self.best_track.return_coords()}')
         print(f'ECMWF Mean Total Track Error: {self.ecmwf.errors[0]}') 
-        print(f'GFS Mean Total Track Error: {self.gfs.errors[0]}')
+        #print(f'GFS Mean Total Track Error: {self.gfs.errors[0]}')
         print(f'ECMWF Mean Total Intensity Error: {self.ecmwf.errors[1]}') 
-        print(f'GFS Mean Total Intensity Error: {self.gfs.errors[1]}')
+        #print(f'GFS Mean Total Intensity Error: {self.gfs.errors[1]}')
 
     def track_map(self):
         """ Creates a quick track map for TC"""

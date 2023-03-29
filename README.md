@@ -3,14 +3,11 @@ Lara Tobias-Tarsh, Nick Dewhirst, Claire Sheeren, Ryan Pohlman
 Google Drive: https://drive.google.com/drive/folders/1PdQvzxRMCL0q9U4QIkF02pyXJhxSnXBe?usp=sharing
 ## TO DO:
 ### add to file: 
-* descriptor header containing cyclone name and model descriptor
-    e.g. TC Norbert, ECMF Ensemble, 2006-10-01-0z (completed, 20th Feb 2023)
-* basic headers for each variable
-    e.g. basin, number, time, data['tech'], forecast hour, latitude , longitude, max wind, mslp
-    (completed, 20th Feb 2023)
-* add script to read straight into a dataframe (probably with genfromtxt?)
-* add pull and parse script
-    - probably worth making a functions module for everything
+* RSME function
+* Along-track and cross-track error
+* Fourier transform code of TC track error data
+* Make sure all CSVs for the storm get read in
+* Add download bash script with directory organisation
 
 ## Git and GitHub
 I have no clue how to use the git GUI, but here is a pretty comprehensive guide on command line git:
@@ -62,5 +59,6 @@ $ conda env create -f tcVerification.yml
 ## Progress Log:
 * 20th Feb 2023 -- modified TropCy to parse to .csv files instead of .dat, added header to file
 * 21st Feb 2023 -- initial git push, included example parsed files
+* 15th March 2023 -- cyclone objects completed and mostly tested
 
 

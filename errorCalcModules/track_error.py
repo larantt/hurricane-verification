@@ -28,6 +28,7 @@ import pandas as pd
 import hurdat2parser
 import cartopy.crs as ccrs
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 import traceback
 
 #############
@@ -256,6 +257,14 @@ def generate_cyclone(dirpath):
     except:
         pass
 
+
+def colorFader(c1,c2,mix=0):
+    """ Fades two matplotlib colors together into a gradient """
+    c1=np.array(mpl.colors.to_rgb(c1))
+    c2=np.array(mpl.colors.to_rgb(c2))
+    return mpl.colors.to_hex((1-mix)*c1 + mix*c2)
+
+
 #############
 ## CLASSES ##
 #############
@@ -442,15 +451,43 @@ class Track:
         return [(self.forecasts[idx].lon,self.forecasts[idx].lat) for (idx,fcst) in enumerate(self.forecasts)]
     
     def return_lons(self):
-        """TBA"""
+        """ Returns a list of longitudes in a given track
+        
+        Parameters
+        -----------
+        self : Track
+
+        Returns
+        --------
+            : List
+            List of longitudes for the TC track
+        """
         return [self.forecasts[idx].lon for (idx,fcst) in enumerate(self.forecasts)]
     
     def return_lats(self):
-        """TBA"""
+        """ Returns a list of latitudes in a given track
+        
+        Parameters
+        -----------
+        self : Track
+
+        Returns
+        --------
+            : List
+            List of latitudes for the TC track """
         return [self.forecasts[idx].lat for (idx,fcst) in enumerate(self.forecasts)]
     
     def return_times(self):
-        """TBA"""
+        """ Returns a list of times in a given track
+        
+        Parameters
+        -----------
+        self : Track
+
+        Returns
+        --------
+            : List
+            List of times for the TC track """
         return [self.forecasts[idx].time for (idx,fcst) in enumerate(self.forecasts)]
 
 
@@ -575,6 +612,52 @@ class Cyclone:
         ax.set_extent([min(lons)-15, max(lons)+15, min(lats)-15, max(lats)+15], crs=ccrs.PlateCarree())
         ax.stock_img()
         ax.coastlines()
-        ax.plot(lons,lats,transform=ccrs.PlateCarree()) 
+        ax.plot(lons,lats,transform=ccrs.PlateCarree())
+
+    def track_map_spec_run(self,run_num):
+        """ Creates a quick track map for TC at specified run"""
+        print(f"Best track map for TC {self.name}: ")
+        # Extract coords
+        lons = self.ecmwf.runs[run_num].return_lons()
+        lats = self.ecmwf.runs[run_num].return_lats()
+        ax = plt.axes(projection=ccrs.PlateCarree())
+        # Auto crop map
+        ax.set_extent([min(lons)-15, max(lons)+15, min(lats)-15, max(lats)+15], crs=ccrs.PlateCarree())
+        ax.stock_img()
+        ax.coastlines()
+        ax.plot(lons,lats,transform=ccrs.PlateCarree())
+
+    def track_map_fcast_evolution(self):
+        """ Creates a map showing the track forecast evolution across
+            model runs """
+        fig = plt.figure(figsize=(10,8))
+        ax = plt.axes(projection=ccrs.PlateCarree())
+        min_lon = min(self.ecmwf.runs[0].return_lons())
+        max_lon = max(self.ecmwf.runs[0].return_lons())
+        min_lat = min(self.ecmwf.runs[0].return_lats())
+        max_lat = max(self.ecmwf.runs[0].return_lats())
+        
+        for (idx,run) in enumerate(self.ecmwf.runs):
+            lons = run.return_lons()
+            lats = run.return_lats()
+            init = min(run.return_times())
+
+            if min(lons) < min_lon : min_lon = min(lons)
+            if max(lons) < max_lon : max_lon = max(lons)
+            if min(lats) < min_lat : min_lon = min(lats)
+            if max(lats) < max_lat : min_lat = min(lats)
+
+            ax.scatter(lons,lats,transform=ccrs.PlateCarree(), 
+                       color=colorFader('red','blue',idx/len(self.ecmwf.runs)),alpha=0.5,label=init)
+
+        bt_lons = self.best_track.return_lons()
+        bt_lats = self.best_track.return_lats()
+        ax.plot(bt_lons,bt_lats,transform=ccrs.PlateCarree(),c='k',lw=0.6,label='Best Track')
+        ax.legend(prop={'size':6})
+        ax.set_extent([min(bt_lons)-15, max(bt_lons)+15, min(bt_lats)-15, max(bt_lats)+15], crs=ccrs.PlateCarree())
+        ax.stock_img()
+        ax.coastlines()
+        ax.set_title(f'ECMWF Forecast Evolution for TC {self.name}')
+
          
                    

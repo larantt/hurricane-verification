@@ -625,7 +625,7 @@ class Cyclone:
         ax.set_extent([min(lons)-15, max(lons)+15, min(lats)-15, max(lats)+15], crs=ccrs.PlateCarree())
         ax.stock_img()
         ax.coastlines()
-        ax.plot(lons,lats,transform=ccrs.PlateCarree())
+        ax.scatter(lons,lats,transform=ccrs.PlateCarree())
 
     def track_map_fcast_evolution(self):
         """ Creates a map showing the track forecast evolution across

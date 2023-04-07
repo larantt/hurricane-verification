@@ -2,7 +2,8 @@ import xml.etree.ElementTree as ET
 import sys
 sys.path.append(sys.path[0]+'/..')
 print(sys.path)
-import os
+import os, glob
+import TIGGE2012Download as dl
 from TropCy import atcf
 from TropCy import cxml
 #from datetime import datetime
@@ -74,9 +75,21 @@ def cxml2atcf(fname):
 if __name__ == "__main__":
    try:
     # fname='test_data/z_tigge_c_ecmf_20140905120000_ifs_glob_prod_all_glo.xml'
-    fname=sys.argv[1]
-    print (fname)
-    cxml2atcf(fname)
+    #fname = "/Users/laratobias-tarsh/Documents/clim323-final/cxml2020GEFS/z_tigge_c_kwbc_20200502000000_GFS_glob_prod_sttr_glo.xml"
+    #fname=sys.argv[1]
+    #print (fname)
+    #cxml2atcf(fname)
+
+    dl.getfile()
+    # get all files ending in .xml
+    pattern = "/*.xml"
+    inpath = "/Users/laratobias-tarsh/Documents/clim323-final/tcdata_python/format_converters"
+    outpath = "/Users/laratobias-tarsh/Documents/clim323-final/cxml2012"
+    files = glob.glob(inpath + pattern)
+    
+    for fname in files:
+      cxml2atcf(fname)
+    dl.organise(inpath,inpath)
    except Exception:
      exc_info = sys.exc_info()
      traceback.print_exception(*exc_info)

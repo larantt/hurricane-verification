@@ -33,8 +33,8 @@ def lon(x):
 
 def basin2short(longname):
     """convert long basin name to short acronym"""
-    dictionary =  {   "North Atlantic" : "al",\
-                    "Northeast Pacific" : "ep",\
+    dictionary =  {   "North Atlantic" : "AL",\
+                    "Northeast Pacific" : "EP",\
                       "Central Pacific" : "cp",\
                     "Northwest Pacific" : "wp",\
                          "North Indian" : "io",\

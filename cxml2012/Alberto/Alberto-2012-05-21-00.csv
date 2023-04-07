@@ -1,0 +1,3 @@
+basin,number,time,tech,model,forecastHr,lat,lon,vmax,mslp,
+AL,01,2012052100, 03,EE20,  0,34.3,-81.1, 25,1016,XX
+AL,01,2012052100, 03,EE20, 12,30.1,-79.6, 32,1011,XX

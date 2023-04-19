@@ -270,7 +270,6 @@ def colorFader(c1,c2,mix=0):
 #############
 
 @dataclass
-# Initialse a best track as purely a track of positions
 class Position:
     """ TC object containing positional and intensity information
 
@@ -296,7 +295,6 @@ class Position:
     mslp: float
     vmax: float
 
-    # function to get haversine distacne as a class member?
     def great_circle(self, other):
         """ Calculates great circle distance between two points using the haversine formula
         
@@ -325,7 +323,6 @@ class Position:
         gcd = 2 * radius * asin(sqrt(h_inside))
         return gcd
     
-    # function for intensity error
     def intensityError(self, other):
         """Calculates intensity difference between two TCs
 
@@ -432,8 +429,6 @@ class Track:
             self.mean_ierror = (i_err / len(self.forecasts))
         else:
             self.mean_terror = self.mean_ierror = 0   
-    #along_track_bias: float = field(init=False)
-    #cross_track_bias: float = field(init=False)
 
     def return_coords(self):
         """ Gives a list of (lat,lon) pairs for a given track
@@ -489,30 +484,38 @@ class Track:
             : List
             List of times for the TC track """
         return [self.forecasts[idx].time for (idx,fcst) in enumerate(self.forecasts)]
+    
+    def return_TE(self):
+        """ Returns a list of longitudes in a given track
+        
+        Parameters
+        -----------
+        self : Track
 
+        Returns
+        --------
+            : List
+            List of longitudes for the TC track
+        """
+        return [self.forecasts[idx].track_error for (idx,fcst) in enumerate(self.forecasts)]
+    
+    def return_IE(self):
+        """ Returns a list of longitudes in a given track
+        
+        Parameters
+        -----------
+        self : Track
 
-
-#@dataclass
-# ONLY NECESSARY IF THERE IS AN ENSEMBLE
-# TBC: do we start from best track formation or model detection...?
-#class Run:
-#    """ TC object containing full track and error data for each model run
-#
-#    Class holds each entire forecast for a given lead time.
-#    E.g. run1 will be the first time the model detects TC,
-#    runN will be the closest run to dissipation time.
-#
-#    Attributes
-#    ----------
-#        tracks : List
-#            List of all model generated tracks up to dissipation
-#    """
-#    #tracks: List[Track]
+        Returns
+        --------
+            : List
+            List of longitudes for the TC track
+        """
+        return [self.forecasts[idx].intensity_error for (idx,fcst) in enumerate(self.forecasts)]
 
 
 @dataclass
 class Model:
-    # add functionality to create initial conditions forecast map from model data
     """ TC Object containing all data for a given model
 
     Class holds all runs from formation to dissipation for a given model ensemble.
@@ -548,8 +551,6 @@ class Model:
 
 @dataclass
 class Cyclone:
-    # I want the constructor for this to be just passing a list of files in a directory
-    # Should be able to iterate through a list of directories and initialise all Cyclones for season
     """ Main TC object containing all information wrt a TC
     
     Class contains all information that is used in tracking TCs for
@@ -570,8 +571,6 @@ class Cyclone:
             Number of storm in season
         formation_date : dt.datetime
             Date of formation in best track
-        synoptic_classif : TBA
-            TBA - probably user input?
         best_track : List
             List containing best track data
         
@@ -579,8 +578,6 @@ class Cyclone:
     name: str
     year : int
     ecmwf: Model
-    #gfs: Model
-    #number: int = field(init=False)
     best_track: Track
     formation_date: dt.datetime = field(init=False)
     dissipation_date: dt.datetime = field(init=False)
@@ -659,5 +656,82 @@ class Cyclone:
         ax.coastlines()
         ax.set_title(f'ECMWF Forecast Evolution for TC {self.name}')
 
-         
+    def track_map_fcast_evolution_int(self,type):
+        """ Creates a map showing the track forecast evolution across
+            model runs """
+        fig = plt.figure(figsize=(10,8))
+        ax = plt.axes(projection=ccrs.PlateCarree())
+        min_lon = min(self.ecmwf.runs[0].return_lons())
+        max_lon = max(self.ecmwf.runs[0].return_lons())
+        min_lat = min(self.ecmwf.runs[0].return_lats())
+        max_lat = max(self.ecmwf.runs[0].return_lats())
+        
+        for (idx,run) in enumerate(self.ecmwf.runs):
+            lons = run.return_lons()
+            lats = run.return_lats()
+            init = min(run.return_times())
+
+            if min(lons) < min_lon : min_lon = min(lons)
+            if max(lons) < max_lon : max_lon = max(lons)
+            if min(lats) < min_lat : min_lon = min(lats)
+            if max(lats) < max_lat : min_lat = min(lats)
+
+            if type == "TE":
+                errorScale = run.return_TE()
+                title = 'Track Error (km)'
+
+            if type == "IE":
+                errorScale = run.return_IE()
+                title = 'Intensity Error (hPa)'
+
+            sc = ax.scatter(lons,lats,transform=ccrs.PlateCarree(), c = errorScale,cmap='seismic',alpha=0.5,label=init)
+
+        bt_lons = self.best_track.return_lons()
+        bt_lats = self.best_track.return_lats()
+        ax.plot(bt_lons,bt_lats,transform=ccrs.PlateCarree(),c='k',lw=0.6,label='Best Track')
+        ax.set_extent([min(bt_lons)-15, max(bt_lons)+15, min(bt_lats)-15, max(bt_lats)+15], crs=ccrs.PlateCarree())
+        ax.stock_img()
+        ax.coastlines()
+        ax.set_title(f'ECMWF Forecast Evolution of {title} for TC {self.name}')
+        cbar = fig.colorbar(sc)
+        cbar.set_label(f'{title}')
+        fig.tight_layout()
+
+def track_maps(cyclones, ens = True):
+    """ Creates a track or ensemble map for a list of Cyclone objects
+
+    Parameters
+    -----------
+    cyclones : List
+        List of cyclone objects to be mapped
+    ens : Bool
+        Defines if plot should be of the ensembles or not
+
+    Returns
+    --------
+    Map of specified TCs
+    """
+    fig = plt.figure(figsize=(10,8))
+    ax = plt.axes(projection=ccrs.PlateCarree())
+    for cyclone in cyclones:
+        
+        for (idx,run) in enumerate(cyclone.ecmwf.runs):
+            lons = run.return_lons()
+            lats = run.return_lats()
+            init = min(run.return_times())
+
+            ax.scatter(lons,lats,transform=ccrs.PlateCarree(), 
+                       color=colorFader('red','blue',idx/len(cyclone.ecmwf.runs)),alpha=0.3,label=init)
+        bt_lons = cyclone.best_track.return_lons()
+        bt_lats = cyclone.best_track.return_lats()
+        ax.plot(bt_lons,bt_lats,transform=ccrs.PlateCarree(),c='k',lw=0.8,label='Best Track')
+    
+    #ax.legend(prop={'size':6})
+    ax.set_extent([-103.086719,-1.390229,-4.214844,57.401515], crs=ccrs.PlateCarree())
+    ax.stock_img()
+    ax.coastlines()
+    ax.set_title('ECMWF Ensemble forecasts for 2020 Atlantic Hurricane Season')
+    
+    
+
                    

@@ -30,6 +30,8 @@ import cartopy.crs as ccrs
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 import traceback
+from matplotlib.cm import get_cmap
+    
 
 #############
 ## GLOBALS ##
@@ -486,7 +488,7 @@ class Track:
         return [self.forecasts[idx].time for (idx,fcst) in enumerate(self.forecasts)]
     
     def return_TE(self):
-        """ Returns a list of longitudes in a given track
+        """ Returns a list of Track Errors in a given track
         
         Parameters
         -----------
@@ -495,12 +497,12 @@ class Track:
         Returns
         --------
             : List
-            List of longitudes for the TC track
+            List of track errors for the TC track
         """
         return [self.forecasts[idx].track_error for (idx,fcst) in enumerate(self.forecasts)]
     
     def return_IE(self):
-        """ Returns a list of longitudes in a given track
+        """ Returns a list of Intensity Errors in a given track
         
         Parameters
         -----------
@@ -509,9 +511,24 @@ class Track:
         Returns
         --------
             : List
-            List of longitudes for the TC track
+            List of intensity errors for the TC track
         """
         return [self.forecasts[idx].intensity_error for (idx,fcst) in enumerate(self.forecasts)]
+    
+    def return_error_pair(self):
+        """ Returns a list of Intensity Errors in a given track
+        
+        Parameters
+        -----------
+        self : Track
+
+        Returns
+        --------
+            : List(tuple)
+            List of intensity errors for the TC track
+        """
+        return [(self.forecasts[idx].intensity_error,self.forecasts[idx].track_error) 
+                for (idx,fcst) in enumerate(self.forecasts)]
 
 
 @dataclass
@@ -585,7 +602,25 @@ class Cyclone:
     def __post_init__(self):
         # Sets formation date to the first time in the best track
         self.formation_date = self.best_track.forecasts[0].time 
-        self.dissipation_date = self.best_track.forecasts[-1].time  
+        self.dissipation_date = self.best_track.forecasts[-1].time
+
+    def __repr__(self) -> str:
+        rep =   f"""
+        Cyclone(
+            Name: {self.name}
+            Year: {self.year}
+            Formation Date: {self.formation_date.strftime("%Y-%m-%d")}
+            Dissipation Date: {self.dissipation_date.strftime("%Y-%m-%d")}
+            EPS Runs: {len(self.ecmwf.runs)} runs initialised:
+                        {self.ecmwf.runs[0].forecasts[0]}
+                        ...
+                        {self.ecmwf.runs[-1].forecasts[-1]}
+            Best Track: 
+                        {self.best_track.forecasts[0]}
+                        ...
+                        {self.best_track.forecasts[-1]}
+        )"""
+        return rep
 
     def print_summary(self):
         """ Returns a short summary of statistics for a TC """
@@ -656,11 +691,12 @@ class Cyclone:
         ax.coastlines()
         ax.set_title(f'ECMWF Forecast Evolution for TC {self.name}')
 
-    def track_map_fcast_evolution_int(self,type):
+    def track_map_fcast_evolution_errors(self):
         """ Creates a map showing the track forecast evolution across
             model runs """
-        fig = plt.figure(figsize=(10,8))
-        ax = plt.axes(projection=ccrs.PlateCarree())
+        fig = plt.figure(figsize=(20,10))
+        ax1 = fig.add_subplot(211,projection=ccrs.PlateCarree())
+        ax2 = fig.add_subplot(221,projection=ccrs.PlateCarree())
         min_lon = min(self.ecmwf.runs[0].return_lons())
         max_lon = max(self.ecmwf.runs[0].return_lons())
         min_lat = min(self.ecmwf.runs[0].return_lats())
@@ -676,28 +712,37 @@ class Cyclone:
             if min(lats) < min_lat : min_lon = min(lats)
             if max(lats) < max_lat : min_lat = min(lats)
 
-            if type == "TE":
-                errorScale = run.return_TE()
-                title = 'Track Error (km)'
+            
+            errorTE = run.return_TE()
+            errorIE = run.return_IE()
 
-            if type == "IE":
-                errorScale = run.return_IE()
-                title = 'Intensity Error (hPa)'
-
-            sc = ax.scatter(lons,lats,transform=ccrs.PlateCarree(), c = errorScale,cmap='seismic',alpha=0.5,label=init)
+            sc1 = ax1.scatter(lons,lats,transform=ccrs.PlateCarree(), c = errorTE,cmap='hot_r',alpha=0.5,label=init)
+            sc2 = ax2.scatter(lons,lats,transform=ccrs.PlateCarree(), c = errorIE,cmap='seismic',alpha=0.5,label=init)
 
         bt_lons = self.best_track.return_lons()
         bt_lats = self.best_track.return_lats()
-        ax.plot(bt_lons,bt_lats,transform=ccrs.PlateCarree(),c='k',lw=0.6,label='Best Track')
-        ax.set_extent([min(bt_lons)-15, max(bt_lons)+15, min(bt_lats)-15, max(bt_lats)+15], crs=ccrs.PlateCarree())
-        ax.stock_img()
-        ax.coastlines()
-        ax.set_title(f'ECMWF Forecast Evolution of {title} for TC {self.name}')
-        cbar = fig.colorbar(sc)
-        cbar.set_label(f'{title}')
-        fig.tight_layout()
+        
+        ax1.plot(bt_lons,bt_lats,transform=ccrs.PlateCarree(),c='k',lw=0.6,label='Best Track')
+        ax1.set_extent([min(bt_lons)-15, max(bt_lons)+15, min(bt_lats)-15, max(bt_lats)+15], crs=ccrs.PlateCarree())
+        ax1.stock_img()
+        ax1.coastlines()
+        ax1.set_title(f'ECMWF Forecast Evolution of Track Error (km) for TC {self.name}')
+        cbar1 = fig.colorbar(sc1)
+        cbar1.set_label(f'Track Error (km)')
 
-def track_maps(cyclones, ens = True):
+        ax2.plot(bt_lons,bt_lats,transform=ccrs.PlateCarree(),c='k',lw=0.6,label='Best Track')
+        ax2.set_extent([min(bt_lons)-15, max(bt_lons)+15, min(bt_lats)-15, max(bt_lats)+15], crs=ccrs.PlateCarree())
+        ax2.stock_img()
+        ax2.coastlines()
+        ax2.set_title(f'ECMWF Forecast Evolution of Intensity Error (mbar) for TC {self.name}')
+        cbar2 = fig.colorbar(sc2)
+        cbar2.set_label(f'Intensity Error (mbar)')
+
+        fig.tight_layout()
+        
+        
+
+def track_maps(cyclones, title = 'season', ens = True):
     """ Creates a track or ensemble map for a list of Cyclone objects
 
     Parameters
@@ -710,27 +755,41 @@ def track_maps(cyclones, ens = True):
     Returns
     --------
     Map of specified TCs
+
     """
+    # Create list of colors to run through
+    colors = [colorFader('red','blue',i/len(cyclones)) for i in range(len(cyclones))]
     fig = plt.figure(figsize=(10,8))
     ax = plt.axes(projection=ccrs.PlateCarree())
+    ax.set_prop_cycle(color=colors)
+    names = []
     for cyclone in cyclones:
+        names.append(cyclone.name)
         
         for (idx,run) in enumerate(cyclone.ecmwf.runs):
             lons = run.return_lons()
             lats = run.return_lats()
             init = min(run.return_times())
 
-            ax.scatter(lons,lats,transform=ccrs.PlateCarree(), 
+            bt_lons = cyclone.best_track.return_lons()
+            bt_lats = cyclone.best_track.return_lats()
+
+            if ens == True:
+                ax.scatter(lons,lats,transform=ccrs.PlateCarree(), 
                        color=colorFader('red','blue',idx/len(cyclone.ecmwf.runs)),alpha=0.3,label=init)
-        bt_lons = cyclone.best_track.return_lons()
-        bt_lats = cyclone.best_track.return_lats()
-        ax.plot(bt_lons,bt_lats,transform=ccrs.PlateCarree(),c='k',lw=0.8,label='Best Track')
+            if title == 'season':
+                ax.plot(bt_lons,bt_lats,transform=ccrs.PlateCarree(),lw=0.8,label='Best Track')
+            else:
+                ax.plot(bt_lons,bt_lats,transform=ccrs.PlateCarree(),lw=0.8)
     
-    #ax.legend(prop={'size':6})
+    ax.legend(names,prop={'size':6})
     ax.set_extent([-103.086719,-1.390229,-4.214844,57.401515], crs=ccrs.PlateCarree())
     ax.stock_img()
     ax.coastlines()
-    ax.set_title('ECMWF Ensemble forecasts for 2020 Atlantic Hurricane Season')
+    if title == 'season':
+        ax.set_title('ECMWF Ensemble forecasts for 2020 Atlantic Hurricane Season')
+    else:
+        ax.set_title(title)
     
     
 
